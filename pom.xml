@@ -39,7 +39,7 @@
     </properties>
 
     <scm>
-        <connection>scm:svn:https://c5-db-migration.googlecode.com/svn/tags/javascript-test-maven-plugin-1.0-rc1</connection>
+        <connection>scm:svn:https://javascript-test-maven-plugin.googlecode.com/svn/tags/javascript-test-maven-plugin-1.0-rc1</connection>
     </scm>
 
     <repositories>
