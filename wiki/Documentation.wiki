@@ -1,0 +1,22 @@
+#labels documentation
+This plugin is designed to be as lightweight as possible, so its usage is pretty simple.   You should start by setting up some [http://github.com/nkallen/screw-unit Screw-Unit] tests for your Javascript files that run in a browser.  Once your tests are working, you can integrate them into your maven build by adding the javascript-test-maven-plugin to your maven pom file like this:
+
+{{{
+      <plugin>
+        <executions><execution><goals><goal>javascript-test</goal></goals></execution></executions>
+        <groupId>com.carbonfive</groupId>
+        <artifactId>javascript-test-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <configuration>
+          <includes>
+            <include>src/test/javascript/suite*.html</include>
+          </includes>
+        </configuration>
+      </plugin>
+}}}
+
+The `<configuration>` section contains [http://maven.apache.org/plugins/maven-resources-plugin/examples/include-exclude.html standard] maven `<include>` and `<exclude>` tags to allow you to specify any Screw-Unit test suite html files you would like to include in your build.
+
+When maven executes your unit tests, it will include the Javascript tests as well.  Any test that fails will halt the build.  When the test phase is complete the target directory will contain a 'screw-unit' directory that contains the test reports.  There will be two files for every file included in the test execution  The first is an XML file named `TEST-dir1.dir2.dir3.filename.html.xml` that contains the test results for that file in a close approximation of JUnit's xml format.  The other file will be named `dir1.dir2.dir3.filename.html`, and it will contain a sort of snapshot of the test suite's html at the time the tests finished running.
+
+That's really all there is to it.
