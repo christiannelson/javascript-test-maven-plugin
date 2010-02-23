@@ -7,7 +7,6 @@
   <packaging>jar</packaging>
   <name>Test Project For Javascript Test Plugin</name>
 
-
   <build>
     <plugins>
       <plugin>
@@ -32,7 +31,5 @@
       </plugin>
     </plugins>
   </build>
-
-
 
 </project>
